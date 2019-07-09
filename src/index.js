@@ -1,5 +1,5 @@
 const checkPerformance = (onChange = () => null, options) => {
-  const fps = { current: 0, average: 0 };
+  const data = { fps: 0, average: 0, quality: false };
 
   const {
     samples,
@@ -32,23 +32,24 @@ const checkPerformance = (onChange = () => null, options) => {
   const msToFps = value => 1000 / value;
 
   const setPerformance = () => {
-    const fpsValue = msToFps(self.average);
+    const fps = msToFps(self.average);
 
     switch (mode) {
       case 1:
         self.performance = 1;
-        while ((maxFps / maxLevel) * self.performance < fpsValue) self.performance += 1;
+        while ((maxFps / maxLevel) * self.performance < fps) self.performance += 1;
         break;
       default:
-        self.performance += fpsValue < limit ? -1 : 1;
+        self.performance += fps < limit ? -1 : 1;
     }
 
     self.performance = Math.max(Math.min(self.performance, maxLevel), 0);
+    data.quality = self.performance;
 
-    if (self.prevPerformance !== self.performance) onChange(self.performance, fpsValue);
+    if (self.prevPerformance !== self.performance || !data.quality) onChange(self.performance, fps);
 
     self.prevPerformance = self.performance;
-    return fpsValue;
+    return fps;
   };
 
   return {
@@ -70,15 +71,15 @@ const checkPerformance = (onChange = () => null, options) => {
 
         if (self.store.length > samples - 1) {
           self.average = self.store.reduce((p, c) => p + c) / self.store.length;
-          fps.average = setPerformance();
+          data.average = setPerformance();
           self.store = [];
         }
         self.storedMs = 0;
       }
 
-      fps.current = msToFps(ms);
+      data.fps = msToFps(ms);
     },
-    fps,
+    data,
   };
 };
 
