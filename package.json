@@ -1,0 +1,37 @@
+{
+  "name": "check-performance",
+  "version": "0.0.1",
+  "description": "Check current performance level by FPS",
+  "main": "dist/bundle.esm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup src/index.js -o ./dist/bundle.esm.js -f esm && rollup src/index.js -o ./dist/bundle.cjs.js -f cjs && rollup src/index.js -o ./dist/bundle.iife.js -f iife --name \"checkperformance\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williammanco/check-performance.git"
+  },
+  "keywords": [
+    "performance",
+    "fps",
+    "check",
+    "tool",
+    "realtime"
+  ],
+  "author": {
+    "name": "William Manco",
+    "email": "wmanco88@gmail.com",
+    "url": "https://williamman.co"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/williammanco/check-performance/issues"
+  },
+  "homepage": "https://github.com/williammanco/check-performance#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "rollup": "^1.9.0"
+  }
+}
