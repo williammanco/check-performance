@@ -44,9 +44,10 @@ const checkPerformance = (onChange = () => null, options) => {
     }
 
     self.performance = Math.max(Math.min(self.performance, maxLevel), 0);
-    data.quality = self.performance;
 
     if (self.prevPerformance !== self.performance || !data.quality) onChange(self.performance, fps);
+
+    data.quality = self.performance;
 
     self.prevPerformance = self.performance;
     return fps;
