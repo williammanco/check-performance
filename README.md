@@ -4,6 +4,7 @@ Small utility to check realtime performance level for **scalable** quality proje
 Check current performance based on fps/ms of project during navigation.
 
 [Example](https://codesandbox.io/s/example-check-performance-ljoen?fontsize=14)
+
 [Github repo](https://github.com/williammanco/check-performance)
 
 ## Install
