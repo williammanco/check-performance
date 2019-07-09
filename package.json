@@ -1,6 +1,6 @@
 {
   "name": "check-performance",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Check current performance level by FPS",
   "main": "dist/bundle.esm.js",
   "scripts": {
