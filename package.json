@@ -1,11 +1,11 @@
 {
   "name": "check-performance",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Check current performance level by FPS",
-  "main": "dist/bundle.esm.js",
+  "main": "dist/bundle.esm.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup src/index.js -o ./dist/bundle.esm.js -f esm && rollup src/index.js -o ./dist/bundle.cjs.js -f cjs && rollup src/index.js -o ./dist/bundle.iife.js -f iife --name \"checkperformance\""
+    "build": "rimraf dist/* && rollup -c"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.2",
-    "rollup": "^1.9.0"
+    "rollup": "^1.9.0",
+    "rollup-plugin-terser": "^5.1.1"
   }
 }
